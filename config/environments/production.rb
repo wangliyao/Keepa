@@ -81,6 +81,29 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
+   config.action_mailer.delivery_method = :smtp
+
+ config.action_mailer.smtp_settings = {
+     address: "smtp.exmail.qq.com",
+     port: 465,
+     domain: "exmail.qq.com",
+     user_name: 'wangliyao@geekpark.net',
+     password: 'Wang1992',
+     :authentication       => :login,
+     :ssl => true
+ }
+       
+
+  config.middleware.use ExceptionNotification::Rack,
+    ignore_exceptions: ['ActionController::UnknownFormat', 'ActionController::BadRequest'] + ExceptionNotifier.ignored_exceptions,
+    email: {
+      email_prefix: "[gpk_event]",
+      sender_address: %{"error" <error_notifier@geekpark.net>},
+      exception_recipients: %w{wangliyao@geekpark.net}
+    }
+
+
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

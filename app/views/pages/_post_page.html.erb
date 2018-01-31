@@ -7,12 +7,14 @@
 	  		<th>文摘</th>
 	  	</tr>
 	  </thead>
-	<% @posts.each do |t| %>
-    <tr>
+	<% if @posts.present? %>
+	  <% @posts.each do |t| %>
+      <tr>
     	<td><%= t.id %></td>
     	<td><%= t.title %></td>
     	<td><%= t.abstract%></td>
-    </tr>
-  <% end %>
+      </tr>
+      <% end %>
+    <% end %>
 	</tbody>
 </table>
