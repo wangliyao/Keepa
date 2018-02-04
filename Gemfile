@@ -23,6 +23,11 @@ gem 'pg'
 gem 'cancancan'
 gem 'doorkeeper'
 
+gem 'exception_notification'
+
+gem "capistrano", "~> 3.10", require: false
+
+
 gem 'oauth2'
 
 gem 'bootstrap-sass', '~> 3.3.7'
