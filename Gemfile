@@ -30,6 +30,8 @@ gem "capistrano", "~> 3.10", require: false
 gem 'capistrano-rvm'
 gem 'capistrano-bundler', '~> 1.3'
 
+gem 'mina'
+
 
 
 gem 'oauth2'
