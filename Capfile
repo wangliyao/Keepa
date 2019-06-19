@@ -7,6 +7,7 @@ require 'capistrano/rvm'                 # 加载 RVM 相关配置
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
+require 'capistrano/puma'
 
 # Load the SCM plugin appropriate to your project:
 #
@@ -37,6 +38,8 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/rails/assets"
 # require "capistrano/rails/migrations"
 # require "capistrano/passenger"
+install_plugin Capistrano::Puma
+
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
