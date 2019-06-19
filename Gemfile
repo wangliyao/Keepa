@@ -29,6 +29,8 @@ gem 'exception_notification'
 gem "capistrano", "~> 3.10", require: false
 gem 'capistrano-rvm'
 gem 'capistrano-bundler', '~> 1.3'
+gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+
 
 gem 'mqtt', :git => 'https://github.com/njh/ruby-mqtt.git'
 
