@@ -73,13 +73,16 @@
                 </ul>
               <% else %>
                 <li><%= link_to '登陆', new_session_path %></li>
-                <li><%= link_to '注册', new_user_path%></li>
+                <li><%= link_to '测试', new_user_path%></li>
               <% end %>
   	  			</li>
   	  		</ul>
   	  </div>
   	</header>
-    <%= yield %>
+    <body>
+     <%= yield %>
+    </body>
+      <%#= t :hello %>
     <footer class="bs-docs-footer">
       <div class="container" style="text-align: left;">
         <ul class="bs-docs-footer-links">
@@ -90,7 +93,6 @@
       </div>
     </footer>
   </body>
-  ssss
 </html>
 <script type="text/javascript">
 	$('.dropdown-toggle').dropdown()
