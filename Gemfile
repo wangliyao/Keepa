@@ -1,4 +1,4 @@
-source 'https://gems.ruby-china.org'
+source 'https://gems.ruby-china.com'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -30,9 +30,11 @@ gem "capistrano", "~> 3.10", require: false
 gem 'capistrano-rvm'
 gem 'capistrano-bundler', '~> 1.3'
 
+gem 'mqtt', :git => 'https://github.com/njh/ruby-mqtt.git'
+
 gem 'mina'
 
-
+gem 'merit'
 
 gem 'oauth2'
 
