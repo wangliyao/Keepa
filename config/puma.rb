@@ -5,21 +5,38 @@
 # and maximum, this matches the default thread size of Active Record.
 #
 
-environment 'production'
-shared_path = File.expand_path("../", __FILE__)
-pidfile "#{shared_path}/shared/tmp/pids/puma.pid"
-state_path "#{shared_path}/shared/tmp/pids/puma.state"
-stdout_redirect "#{shared_path}/shared/log/puma.stdout.log", "#{shared_path}/shared/log/puma.stderr.log", true
-bind 'unix:/home/wangliyao/demo/Keepa/shared/tmp/puma.sock'
-daemonize true
-port 3001
-workers 2
-threads 8, 16
-preload_app!
+# environment ENV.fetch("RAILS_ENV") { "development" }
 
-on_worker_boot do
-  ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
-end
+# shared_path = File.expand_path("../", __FILE__)
+
+# pidfile "#{shared_path}/shared/tmp/pids/puma.pid"
+
+# state_path "#{shared_path}/shared/tmp/pids/puma.state"
+
+# stdout_redirect "#{shared_path}/shared/log/puma.stdout.log", "#{shared_path}/shared/log/puma.stderr.log"
+
+# bind 'unix:/home/wangliyao/demo/Keepa/shared/tmp/puma.sock'
+
+threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }.to_i
+threads threads_count, threads_count
+
+# Specifies the `port` that Puma will listen on to receive requests, default is 3000.
+#
+port        ENV.fetch("PORT") { 3000 }
+
+# Specifies the `environment` that Puma will run in.
+#
+environment ENV.fetch("RAILS_ENV") { "development" }
+
+# daemonize true
+# port 3001
+# workers 2
+# threads 8, 16
+# preload_app!
+
+# on_worker_boot do
+#   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
+# end
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
 # the concurrency of the application would be max `threads` * `workers`.

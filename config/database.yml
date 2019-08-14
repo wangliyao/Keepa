@@ -6,20 +6,24 @@
 #
 default: &default
   adapter: postgresql
-  pool: 5
+  host: db
+  port: 5432
+  username: postgres
+  password:
   timeout: 5000
 
-development:
-  <<: *default
-  database: keepa
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: keepa
+# development:
+#   <<: *default
+#   database: keepa
+
+# # Warning: The database defined as "test" will be erased and
+# # re-generated from your development database when you run "rake".
+# # Do not set this db to the same as development or production.
+# test:
+#   <<: *default
+#   database: keepa
 
 production:
   <<: *default
-  database: keepa
+  database: keepa_production
