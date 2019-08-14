@@ -2,7 +2,7 @@ app=$1
 cd /root/workspace/
 if [ ! -d "${app}" ];then
     echo "克隆项目${app}"
-    git clone -b $app git@xxxx/xxxx.git $app
+    git clone -b $app git@gitee.com:Drechow/Keepa.git $app
     cd ${app}
 else
     cd ${app}
