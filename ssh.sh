@@ -1,14 +1,14 @@
-cd /home/arons/workspace/
+cd /home/arons/workspace
 if [ ! -d "master" ];then
     echo "克隆项目master"
-    git clone -b master https://github.com/wangliyao/Keepa.git
+    git clone -b master p https://github.com/wangliyao/Keepa.git
     cd Keepa
 else
     cd Keepa
     echo "拉取项目Keepa"
     git pull origin master
 fi
-web=$(docker-compose ps | grep keepa | awk '{print $1}')
+web=$(docker-compose ps | grep zeepa | awk '{print $1}')
 if [ -z $web ];then
     echo "构建容器: ${web}"
     docker-compose up -d
