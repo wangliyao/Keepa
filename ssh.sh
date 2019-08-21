@@ -1,19 +1,14 @@
-branch=$(git symbolic-ref --short -q HEAD)
-echo "分支: ${branch}"
-app= 'master'
 cd /home/arons/workspace/
-if [ ! -d "${app}" ];then
-    echo "克隆项目${app}"
-    git clone -b $app https://github.com/wangliyao/Keepa.git
-    cd ${app}
+if [ ! -d "master" ];then
+    echo "克隆项目master"
+    git clone -b master p https://github.com/wangliyao/Keepa.git
+    cd Keepa
 else
-    cd ${app}
-    echo "拉取项目${app}"
-    git pull origin $app
+    cd Keepa
+    echo "拉取项目Keepa"
+    git pull origin master
 fi
-branch=${app//-/}
-echo ${branch}
-web=$(docker-compose ps | grep $branch | awk '{print $1}')
+web=$(docker-compose ps | grep keepa | awk '{print $1}')
 if [ -z $web ];then
     echo "构建容器: ${web}"
     docker-compose up -d
