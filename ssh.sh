@@ -1,7 +1,7 @@
 branch=$(git symbolic-ref --short -q HEAD)
 echo "分支: ${branch}"
 app= 'master'
-cd /root/workspace/
+cd /var/lib/jenkins/workspace/
 if [ ! -d "${app}" ];then
     echo "克隆项目${app}"
     git clone -b $app https://github.com/wangliyao/Keepa.git $app
