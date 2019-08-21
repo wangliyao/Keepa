@@ -1,7 +1,7 @@
 cd /home/arons/workspace/
 if [ ! -d "master" ];then
     echo "克隆项目master"
-    git clone -b master p https://github.com/wangliyao/Keepa.git
+    git clone -b master https://github.com/wangliyao/Keepa.git
     cd Keepa
 else
     cd Keepa
